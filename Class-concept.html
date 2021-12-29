@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Concept</title>
+</head>
+<body>
+    
+
+    <script>
+        class Accountdetails{
+            constructor(name,branch,accNo,balance){
+               this.name = name;
+               this.accNo = accNo;
+               this.balance = balance;
+               this.branch = branch;
+            }
+            profile(){
+                return `Welcome to abc Bank: Your Details as follows:- Name is : ${this.name} Branch : ${this.branch} Account No :${this.accNo} Balance Amount is : ${this.balance}`;
+            }
+            getBalance(){
+                 return `Your Current Balance is: ${this.balance}`;
+            }
+            withDraw(amount){
+                if(amount <= 15000){
+                         if(this.balance >= amount){
+                         this.balance = this.balance - amount;
+                         // return this.balance; // 800
+                         return this.getBalance();
+                         }
+            
+                           else{
+                            return `Your Ledger balance is low 😔😔😔`;
+                           }
+            }
+            else{
+                return `🚨🚨🚨 WARNING : Please enter less than RS: 15,0000/- 🚨🚨🚨`
+            }
+            }
+            deposit(amount){
+                 this.balance = this.balance + amount;
+                 return this.getBalance();
+            }
+            educationLoan(courseName,yearsOfStudy){
+                if(yearsOfStudy < 5 && yearsOfStudy > 0){
+                      if(yearsOfStudy == 3){
+                             return `Estimated loan amount be : 2Lac With Terms & condition apply @Tc Contact Branch Manager for more details !....`;
+                      }
+                      else if(yearsOfStudy == 4){
+                        return `Estimated loan amount be : 4.5Lac With Terms & condition apply @Tc Contact Branch Manager for more details !....`;
+                      }
+                      else{
+                        return `Estimated loan amount be : 1.5Lac With Terms & condition apply @Tc Contact Branch Manager for more details !....`;
+                      }
+
+                }
+                else {
+                    return `Sorry!.. Contact Branch Manager for further Queries!!..`;
+                }
+            }
+        }
+
+        const arun = new Accountdetails("Arun","Chennai-Tambaram",675436884,1000);
+        console.log(arun.profile());
+        console.log(arun.getBalance());
+        console.log(arun.withDraw(200));
+         console.log(arun.deposit(5000));
+         console.log(arun.educationLoan("Engineering",4));
+
+    </script>
+</body>
+</html>

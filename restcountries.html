@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RestCountries Api</title>
+</head>
+<body>
+    <script>
+        
+var request = new XMLHttpRequest();
+  request.open("GET","https://restcountries.com/v3.1/all");
+  request.send();
+request.responseType = "json";
+  request.onload = () =>{
+      var countriesDetails = request.response;
+     
+     countriesDetails.filter((ele) =>{
+            if(ele.population > 10000000){
+              
+                console.log(`Population More than 1 crore : ${ele.name.common}`);
+            }
+     });
+
+     countriesDetails.filter((ele) =>{
+            if(ele.languages.spa){
+                console.log(`Spanish Speaking country : ${ele.name.common}`);
+            }
+            else{
+                
+            }
+     });
+
+
+
+ 
+        
+   
+  }
+//   languages  spa
+
+    </script>
+</body>
+</html>
